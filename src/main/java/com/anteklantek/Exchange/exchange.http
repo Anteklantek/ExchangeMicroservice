@@ -1,0 +1,12 @@
+GET {{host-url}}/rate?code=USD
+
+###
+
+GET {{host-url}}/rate?code=EUR
+
+###
+
+GET {{host-url}}/rate?code=NOT_FOUND
+
+
+###
