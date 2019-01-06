@@ -32,26 +32,16 @@ public class CurrencyRatesService {
     }
 
     private RateViewModel createPLNRateViewModel() {
-        final RateViewModel rateViewModel = new RateViewModel();
-        rateViewModel.setCode("PLN");
-        rateViewModel.setRateValue(BigDecimal.ONE);
-        rateViewModel.setTableEffectiveDate(LocalDate.now());
-        return rateViewModel;
+        return new RateViewModel("PLN",BigDecimal.ONE,LocalDate.now());
     }
 
     private RateViewModel createRateViewModel(CurrencyExchangeTable currencyExchangeTable, String code) {
         final CurrencyExchangeRate rate = currencyExchangeTable.getRates().stream().
                 filter(e -> code.equals(e.getCode())).findFirst().orElse(null);
         if (rate != null) {
-            final RateViewModel rateViewModel = new RateViewModel();
-            rateViewModel.setCode(code);
-            rateViewModel.setRateValue(rate.getMid());
-            rateViewModel.setTableEffectiveDate(currencyExchangeTable.getEffectiveDate());
-            return rateViewModel;
+            return new RateViewModel(code,rate.getMid(),currencyExchangeTable.getEffectiveDate());
         } else {
             return new RateViewModel();
         }
     }
-
-
 }

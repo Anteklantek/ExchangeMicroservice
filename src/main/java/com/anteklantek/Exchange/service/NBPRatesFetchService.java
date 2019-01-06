@@ -55,10 +55,8 @@ public class NBPRatesFetchService {
         }
         try {
             tableRepository.save(currencyExchangeTable);
-        }
-        catch (DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
             log.info("Trying to save duplicate table");
         }
-
     }
 }

@@ -28,5 +28,4 @@ public class CurrencyExchangeTable {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "currencyExchangeTable")
     private List<CurrencyExchangeRate> rates;
-
 }

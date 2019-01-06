@@ -12,7 +12,5 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("nbp-rest-api")
 public class NBPRestApiProperties {
 
-
     private String aTableRestApiUrl;
-
 }
