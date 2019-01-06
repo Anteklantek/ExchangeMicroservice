@@ -1,12 +1,13 @@
 package com.anteklantek.Exchange.service;
 
-import com.anteklantek.Exchange.properties.NBPRestApiProperties;
 import com.anteklantek.Exchange.model.CurrencyExchangeRate;
 import com.anteklantek.Exchange.model.CurrencyExchangeTable;
+import com.anteklantek.Exchange.properties.NBPRestApiProperties;
 import com.anteklantek.Exchange.repository.CurrencyExchangeTableRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -41,17 +42,23 @@ public class NBPRatesFetchService {
         }
     }
 
-    private void saveTable(CurrencyExchangeTable currencyExchangeTable) {
-        for (CurrencyExchangeRate currencyExchangeRate : currencyExchangeTable.getRates()) {
-            currencyExchangeRate.setCurrencyExchangeTable(currencyExchangeTable);
-        }
-        tableRepository.save(currencyExchangeTable);
-    }
-
     public void fetchAndSaveRates() {
         CurrencyExchangeTable currencyExchangeTable = fetchCurrentCurrencyData();
         if (currencyExchangeTable != null) {
             saveTable(currencyExchangeTable);
         }
+    }
+
+    private void saveTable(CurrencyExchangeTable currencyExchangeTable) {
+        for (CurrencyExchangeRate currencyExchangeRate : currencyExchangeTable.getRates()) {
+            currencyExchangeRate.setCurrencyExchangeTable(currencyExchangeTable);
+        }
+        try {
+            tableRepository.save(currencyExchangeTable);
+        }
+        catch (DataIntegrityViolationException e) {
+            log.info("Trying to save duplicate table");
+        }
+
     }
 }

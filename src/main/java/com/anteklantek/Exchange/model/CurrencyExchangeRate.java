@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
+@Table(uniqueConstraints={
+        @UniqueConstraint(columnNames = {"currencyExchangeTableId", "code"})
+})
 public class CurrencyExchangeRate {
 
     @Id
@@ -22,7 +25,7 @@ public class CurrencyExchangeRate {
     private String code;
 
     @NotNull
-    String currency;
+    private String currency;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)

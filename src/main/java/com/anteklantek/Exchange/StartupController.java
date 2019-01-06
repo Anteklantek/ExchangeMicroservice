@@ -12,7 +12,7 @@ public class StartupController implements CommandLineRunner {
     private NBPRatesFetchService nbpRatesFetchService;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
             nbpRatesFetchService.fetchAndSaveRates();
     }
 }

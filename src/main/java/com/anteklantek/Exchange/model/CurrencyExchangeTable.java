@@ -12,17 +12,16 @@ import java.util.List;
 @Entity
 public class CurrencyExchangeTable {
 
-
     @Id
     @GeneratedValue
     private Long id;
 
     @NotNull
+    @Column(unique = true)
     private String no;
 
     @NotNull
-    @Column(unique = true)
-    private String table;
+    private TableType table;
 
     @NotNull
     private LocalDate effectiveDate;

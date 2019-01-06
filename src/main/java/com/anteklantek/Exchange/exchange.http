@@ -1,12 +1,12 @@
-GET {{host-url}}/rate?code=USD
+GET http://localhost:8080/rate?code=USD
 
 ###
 
-GET {{host-url}}/rate?code=EUR
+GET http://localhost:8080/rate?code=PLN
 
 ###
 
-GET {{host-url}}/rate?code=NOT_FOUND
+GET http://localhost:8080/rate?code=NOT_FOUND
 
 
 ###

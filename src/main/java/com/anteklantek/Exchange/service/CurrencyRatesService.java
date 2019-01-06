@@ -31,7 +31,6 @@ public class CurrencyRatesService {
         }
     }
 
-
     private RateViewModel createPLNRateViewModel() {
         final RateViewModel rateViewModel = new RateViewModel();
         rateViewModel.setCode("PLN");
