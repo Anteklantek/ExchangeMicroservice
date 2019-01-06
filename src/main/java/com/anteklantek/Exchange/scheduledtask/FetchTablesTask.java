@@ -14,9 +14,9 @@ import java.time.LocalDate;
 public class FetchTablesTask {
 
     @Autowired
-    NBPRatesFetchService nbpRatesFetchService;
+    private NBPRatesFetchService nbpRatesFetchService;
     @Autowired
-    CurrencyExchangeTableRepository currencyExchangeTableRepository;
+    private CurrencyExchangeTableRepository currencyExchangeTableRepository;
 
     @Scheduled(cron = "1 45 11 * * MON-FRI")
     public void reportCurrentTime() {

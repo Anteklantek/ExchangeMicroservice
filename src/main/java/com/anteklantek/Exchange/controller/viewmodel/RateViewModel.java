@@ -1,8 +1,7 @@
-package com.anteklantek.Exchange.viewmodel;
+package com.anteklantek.Exchange.controller.viewmodel;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -10,17 +10,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class ExchangeApplication implements CommandLineRunner {
+public class ExchangeApplication{
 
 	@Autowired
-	CurrencyExchangeTableRepository repository;
+	private CurrencyExchangeTableRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExchangeApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-	}
 }
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class StartupController implements CommandLineRunner {
 
     @Autowired
-    NBPRatesFetchService nbpRatesFetchService;
+    private NBPRatesFetchService nbpRatesFetchService;
 
     @Override
     public void run(String... args) throws Exception {
