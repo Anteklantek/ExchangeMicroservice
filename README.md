@@ -7,3 +7,5 @@ mvn clean package
 cd target
 java -jar Exchange-0.0.1-SNAPSHOT.jar
 ```
+## Usage
+Take a look at [this](src/main/java/com/anteklantek/Exchange/exchange.http) file.
