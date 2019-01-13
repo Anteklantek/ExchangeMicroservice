@@ -1,5 +1,5 @@
 # ExchangeMicroservice
-This serves as a rates provider for SalaryApi.
+This serves as a rates provider for [SalaryApi](https://github.com/Anteklantek/SalaryApi).
 
 ## Running
 ```
